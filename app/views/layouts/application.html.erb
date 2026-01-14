@@ -23,6 +23,50 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="site-header">
+      <nav class="main-nav">
+        <div class="nav-brand">
+          <%= link_to "What The Game", root_path, class: "brand-link" %>
+        </div>
+        
+        <div class="nav-links">
+          <%= link_to "Games", games_path %>
+          <% if logged_in? %>
+            <%= link_to "My Backlog", user_games_path %>
+            <%= link_to "Recommendations", recommendations_path %>
+          <% end %>
+        </div>
+
+        <div class="nav-auth">
+          <% if logged_in? %>
+            <div class="user-menu">
+              <% if current_user.avatar_url.present? %>
+                <%= image_tag current_user.avatar_url, alt: current_user.username, class: "user-avatar-small" %>
+              <% end %>
+              <span class="username"><%= current_user.username %></span>
+              <%= button_to "Logout", logout_path, method: :delete, class: "btn-logout" %>
+            </div>
+          <% else %>
+            <%= link_to "Sign In", login_path, class: "btn-login" %>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+
+    <% if flash[:notice] %>
+      <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% end %>
+    
+    <% if flash[:alert] %>
+      <div class="alert alert-error"><%= flash[:alert] %></div>
+    <% end %>
+
+    <main class="main-content">
+      <%= yield %>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <%= Time.current.year %> What The Game. Powered by AI recommendations.</p>
+    </footer>
   </body>
 </html>
