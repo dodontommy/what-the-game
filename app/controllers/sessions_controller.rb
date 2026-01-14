@@ -1,4 +1,10 @@
 class SessionsController < ApplicationController
+  # GET /login
+  def new
+    # Show login page with OAuth provider buttons
+    redirect_to root_path if logged_in?
+  end
+
   # GET /auth/:provider/callback
   def create
     auth_hash = request.env["omniauth.auth"]

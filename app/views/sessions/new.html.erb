@@ -1,0 +1,30 @@
+<div class="login-container">
+  <h1>Welcome to What The Game</h1>
+  <p>Sign in with your gaming or social account:</p>
+
+  <div class="auth-buttons">
+    <%= button_to "/auth/steam", method: :post, class: "auth-btn steam-btn" do %>
+      <span class="btn-icon">🎮</span>
+      <span class="btn-text">Continue with Steam</span>
+    <% end %>
+
+    <%= button_to "/auth/gog", method: :post, class: "auth-btn gog-btn" do %>
+      <span class="btn-icon">🎯</span>
+      <span class="btn-text">Continue with GOG</span>
+    <% end %>
+
+    <%= button_to "/auth/google_oauth2", method: :post, class: "auth-btn google-btn" do %>
+      <span class="btn-icon">🔍</span>
+      <span class="btn-text">Continue with Google</span>
+    <% end %>
+
+    <%= button_to "/auth/facebook", method: :post, class: "auth-btn facebook-btn" do %>
+      <span class="btn-icon">📘</span>
+      <span class="btn-text">Continue with Facebook</span>
+    <% end %>
+  </div>
+
+  <p class="login-note">
+    We don't store passwords. Your authentication is handled securely by your chosen provider.
+  </p>
+</div>

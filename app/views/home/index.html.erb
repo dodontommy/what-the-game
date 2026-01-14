@@ -1,9 +1,24 @@
 <div class="container">
-  <h1>Welcome to What The Game</h1>
+  <% if logged_in? %>
+    <div class="user-welcome">
+      <% if current_user.avatar_url.present? %>
+        <%= image_tag current_user.avatar_url, alt: current_user.username, class: "user-avatar" %>
+      <% end %>
+      <h1>Welcome back, <%= current_user.username %>!</h1>
+    </div>
+  <% else %>
+    <h1>Welcome to What The Game</h1>
+  <% end %>
   
   <p class="lead">
     Your AI-powered gaming backlog manager
   </p>
+
+  <% unless logged_in? %>
+    <div class="cta-section">
+      <%= link_to "Get Started - Sign In", login_path, class: "btn-primary" %>
+    </div>
+  <% end %>
 
   <div class="features">
     <h2>Features</h2>
