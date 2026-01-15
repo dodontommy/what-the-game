@@ -63,7 +63,7 @@ This project supports parallel AI agent execution for complex tasks. See `AGENTS
 parallelize: true
 
 # Agents will coordinate via the cursor/agent_communication branch
-# using git worktree (.agent_comms/) for communication
+# and communicate through AGENT_DISCUSSION.md
 ```
 
 **Key Features:**
