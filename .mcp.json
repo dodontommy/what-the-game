@@ -1,0 +1,61 @@
+{
+  "mcpServers": {
+    "postgres": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres", "${DATABASE_URL:-postgresql://localhost:5432/what_the_game_development}"],
+      "env": {}
+    },
+    "github": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "memory-bank": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@movibe/memory-bank-mcp", "--mode", "code"],
+      "env": {}
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "env": {
+        "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY:-}"
+      }
+    },
+    "sequential-thinking": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "env": {}
+    },
+    "filesystem": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/tbonderenka/Documents/GitHub/what-the-game"],
+      "env": {}
+    },
+    "igdb": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["/Users/tbonderenka/Documents/GitHub/igdb-mcp-server/dist/index.js"],
+      "env": {
+        "IGDB_CLIENT_ID": "${IGDB_CLIENT_ID}",
+        "IGDB_CLIENT_SECRET": "${IGDB_CLIENT_SECRET}"
+      }
+    },
+    "steam": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "steam-mcp-server"],
+      "env": {
+        "STEAM_API_KEY": "${STEAM_API_KEY}"
+      }
+    }
+  }
+}
