@@ -61,6 +61,9 @@ build-iPhoneSimulator/
 # Agent coordination worktree (managed separately)
 .agent_comms/
 
+# Git worktrees for isolated development
+.worktrees/
+
 # Python
 __pycache__/
 *.py[cod]
